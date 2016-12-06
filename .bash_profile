@@ -42,6 +42,14 @@ function docker_kill(){
   docker stop $(docker ps -a -q); docker rm $(docker ps -a -q); docker volume rm $(docker volume ls -qf dangling=true)
 }
 
+function docker_clean(){
+	docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
+}
+
+function dcup(){
+  dc && docker-compose up $1
+}
+
 function ports_in_use(){
   lsof -nP | grep LISTEN
 }
@@ -58,7 +66,13 @@ function chmod_num(){
   stat -f "%OLp" $1
 }
 
+source /usr/local/etc/bash_completion.d/docker-compose
+alias dcu='docker-compose up'
+complete -F _docker_compose_up dcu
+
 export -f dc
+export -f dcup
+export -f docker_clean
 export -f t
 export -f cdmr
 export -f cdmb
