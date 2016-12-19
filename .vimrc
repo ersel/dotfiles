@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
+Plug 'jlanzarotta/bufexplorer'
 Plug 'crusoexia/vim-monokai'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
@@ -75,3 +76,18 @@ set wildignore+=*.o,*.so,*.swp,*.zip,*.class,*.jar,node_modules
 
 " change backspace behaviour
 set backspace=indent,eol,start
+
+" change tabs to 4 spaces
+set tabstop=4
+
+" use space as leader in sensible modes
+nmap <space> <Leader>
+vmap <space> <Leader>
+
+" some nice keystrokes mmmm bon appetito
+nnoremap <leader>bb :BufExplorer<cr>
+nnoremap <leader>bs :BufExplorerHorizontalSplit<cr>
+nnoremap <leader>bv :BufExplorerVerticalSplit<cr>
+nnoremap <leader>nt :NERDTreeTabsToggle<cr>
+nnoremap <leader>- :vertical resize -5<cr>
+nnoremap <leader>= :vertical resize +5<cr>
