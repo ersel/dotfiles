@@ -24,6 +24,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'pangloss/vim-javascript'
 Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
 Plug 'scrooloose/nerdcommenter'
+Plug 'easymotion/vim-easymotion'
+Plug 'moll/vim-bbye'
+Plug 'rizzatti/dash.vim'
 
 call plug#end()
 
@@ -79,10 +82,10 @@ set backspace=indent,eol,start
 
 " change tabs to 4 spaces
 set tabstop=4
+set softtabstop=0 noexpandtab
+set shiftwidth=4
 
-" use space as leader in sensible modes
-nmap <space> <Leader>
-vmap <space> <Leader>
+let mapleader=","
 
 " some nice keystrokes mmmm bon appetito
 nnoremap <leader>bb :BufExplorer<cr>
@@ -91,3 +94,17 @@ nnoremap <leader>bv :BufExplorerVerticalSplit<cr>
 nnoremap <leader>nt :NERDTreeTabsToggle<cr>
 nnoremap <leader>- :vertical resize -5<cr>
 nnoremap <leader>= :vertical resize +5<cr>
+
+map  <Leader>w <Plug>(easymotion-w)
+map  <Leader>b <Plug>(easymotion-b)
+map  <Leader>j <Plug>(easymotion-j)
+map  <Leader>k <Plug>(easymotion-k)
+map  <Leader>n <Plug>(easymotion-n)
+
+" map 0 to first non-blank char on line
+nmap 0 ^
+" replace command delete into black hole register, then paste
+vmap r "_dP
+" del buffers like a boss
+:nnoremap <Leader>q :Bdelete<CR>
+:nmap <Leader>d <Plug>DashGlobalSearch
