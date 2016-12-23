@@ -102,7 +102,9 @@ map  <Leader>k <Plug>(easymotion-k)
 map  <Leader>n <Plug>(easymotion-n)
 
 " map 0 to first non-blank char on line
+" nmap 9 to be the last non-blank char on line
 nmap 0 ^
+nmap - $
 " replace command delete into black hole register, then paste
 vmap r "_dP
 " del buffers like a boss
