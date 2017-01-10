@@ -27,6 +27,10 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'easymotion/vim-easymotion'
 Plug 'moll/vim-bbye'
 Plug 'rizzatti/dash.vim'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'https://github.com/leafgarland/typescript-vim.git'
+Plug 'quramy/tsuquyomi'
+Plug 'https://github.com/szw/vim-g.git'
 
 call plug#end()
 
@@ -66,7 +70,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
-
+let g:syntastic_python_python_exec = '/usr/bin/python'
 " keep it clean
 autocmd BufWritePre * StripWhitespace
 :set list lcs=tab:\|\
@@ -85,7 +89,7 @@ set tabstop=4
 set softtabstop=0 noexpandtab
 set shiftwidth=4
 
-let mapleader=","
+let mapleader="\<Space>"
 
 " some nice keystrokes mmmm bon appetito
 nnoremap <leader>bb :BufExplorer<cr>
@@ -95,11 +99,7 @@ nnoremap <leader>nt :NERDTreeTabsToggle<cr>
 nnoremap <leader>- :vertical resize -5<cr>
 nnoremap <leader>= :vertical resize +5<cr>
 
-map  <Leader>w <Plug>(easymotion-w)
-map  <Leader>b <Plug>(easymotion-b)
-map  <Leader>j <Plug>(easymotion-j)
-map  <Leader>k <Plug>(easymotion-k)
-map  <Leader>n <Plug>(easymotion-n)
+map <Leader>f <Plug>(easymotion-bd-w)
 
 " map 0 to first non-blank char on line
 " nmap 9 to be the last non-blank char on line
@@ -109,4 +109,30 @@ nmap - $
 vmap r "_dP
 " del buffers like a boss
 :nnoremap <Leader>q :Bdelete<CR>
+:nnoremap <Leader>w :w<CR>
 :nmap <Leader>d <Plug>DashGlobalSearch
+:nmap <Leader>t :NERDTreeFind<CR>
+" show buffer number
+let g:airline#extensions#tabline#buffer_nr_show = 1
+
+" TypeScript stuff
+let g:tsuquyomi_completion_detail = 1
+autocmd FileType typescript setlocal completeopt+=menu,preview
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
+
+" jump back/forward for the word under cursor
+nmap <Leader>[ #
+nmap <Leader>] *
+
+" Google will fix it?
+:nmap <Leader>go :Google
+
+" add ; to the end of line
+:nmap <Leader>; :norm A;<Esc>
+
+" split line to a new lineplits
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
