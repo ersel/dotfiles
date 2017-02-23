@@ -136,3 +136,12 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
+
+" delete forever...
+nnoremap <leader>d "_d
+
+" fuck ex mode
+:map Q <Nop>
+
+" easy json formatting =j
+nmap =j :%!python -m json.tool<CR>
