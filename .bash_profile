@@ -147,6 +147,10 @@ parse_git_branch() {
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
 }
 
+find_in_files() {
+	find . -type f -print0 | xargs -0 grep -Hn "$1"
+}
+
 # could add \u for username
 export PS1="\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 
@@ -177,10 +181,17 @@ export -f chmod_num
 export -f stt_both
 export -f stt_tab
 export -f stt_title
+export -f find_in_files
 
+alias ff='find_in_files'
 alias ..='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias ..4='cd ../../../..'
+alias ..5='cd ../../../../..'
 alias pyspark='/Users/erselaker/spark-2.0.2-bin-hadoop2.7/bin/pyspark'
 alias spark-submit='/Users/erselaker/spark-2.0.2-bin-hadoop2.7/bin/spark-submit'
+alias s=spotify
 
 # DueCourse workbench CLI
 source /Users/erselaker/duecourse/workbench/.cli/env
