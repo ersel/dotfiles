@@ -31,6 +31,8 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'https://github.com/leafgarland/typescript-vim.git'
 Plug 'quramy/tsuquyomi'
 Plug 'https://github.com/szw/vim-g.git'
+Plug 'fatih/vim-hclfmt'
+Plug 'posva/vim-vue'
 
 call plug#end()
 
@@ -71,6 +73,10 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_python_exec = '/usr/bin/python'
+
+" for vue syntax
+autocmd FileType vue syntax sync fromstart
+
 " keep it clean
 autocmd BufWritePre * StripWhitespace
 :set list lcs=tab:\|\
@@ -145,3 +151,7 @@ nnoremap <leader>d "_d
 
 " easy json formatting =j
 nmap =j :%!python -m json.tool<CR>
+
+" use leader-j/k to move through auto-complete window
+inoremap <expr> <leader>j ((pumvisible())?("\<C-n>"):("<leader>j"))
+inoremap <expr> <leader>k ((pumvisible())?("\<C-p>"):("<leader>k"))
