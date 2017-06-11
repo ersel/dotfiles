@@ -155,3 +155,20 @@ nmap =j :%!python -m json.tool<CR>
 " use leader-j/k to move through auto-complete window
 inoremap <expr> <leader>j ((pumvisible())?("\<C-n>"):("<leader>j"))
 inoremap <expr> <leader>k ((pumvisible())?("\<C-p>"):("<leader>k"))
+
+" Zip Right
+"
+" Moves the character under the cursor to the end of the line.  Handy when you
+" have something like:
+"
+"     foo
+"
+" And you want to wrap it in a method call, so you type:
+"
+"     println()foo
+"
+" Once you hit escape your cursor is on the closing paren, so you can 'zip' it
+" over to the right with this mapping.
+"
+" This should preserve your last yank/delete as well.
+nnoremap zl :let @z=@"<cr>x$p:let @"=@z<cr>
