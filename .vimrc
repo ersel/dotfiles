@@ -1,3 +1,5 @@
+let $VIMRUNTIME='/usr/local/share/vim/vim80'
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'jlanzarotta/bufexplorer'
@@ -33,6 +35,7 @@ Plug 'quramy/tsuquyomi'
 Plug 'https://github.com/szw/vim-g.git'
 Plug 'fatih/vim-hclfmt'
 Plug 'posva/vim-vue'
+Plug 'jmcantrell/vim-virtualenv'
 
 call plug#end()
 
@@ -69,10 +72,14 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+let g:syntastic_mode="passive"
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_python_exec = '/usr/bin/python'
+let g:syntastic_python_pylint_args = "--load-plugins pylint_django"
+nnoremap <leader>sc :SyntasticCheck<CR>
+nnoremap <leader>n :lne<CR>
 
 " for vue syntax
 autocmd FileType vue syntax sync fromstart
@@ -108,7 +115,7 @@ nnoremap <leader>= :vertical resize +5<cr>
 map <Leader>f <Plug>(easymotion-bd-w)
 
 " map 0 to first non-blank char on line
-" nmap 9 to be the last non-blank char on line
+" nmap - to be the last non-blank char on line
 nmap 0 ^
 nmap - $
 " replace command delete into black hole register, then paste
@@ -172,3 +179,7 @@ inoremap <expr> <leader>k ((pumvisible())?("\<C-p>"):("<leader>k"))
 "
 " This should preserve your last yank/delete as well.
 nnoremap zl :let @z=@"<cr>x$p:let @"=@z<cr>
+
+" add a single space without exiting normal mode
+nnoremap ss i<space><esc>
+let NERDTreeIgnore = ['\.pyc$']
