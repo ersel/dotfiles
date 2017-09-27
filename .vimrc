@@ -120,8 +120,8 @@ nmap 0 ^
 nmap - $
 " replace command delete into black hole register, then paste
 vmap r "_dP
-" del buffers like a boss
-:nnoremap <Leader>q :Bdelete<CR>
+" exit buffers like a boss
+:nnoremap <Leader>q :Bdelete<CR> :q<CR>
 :nnoremap <Leader>w :w<CR>
 :nmap <Leader>d <Plug>DashGlobalSearch
 :nmap <Leader>t :NERDTreeFind<CR>
@@ -183,3 +183,9 @@ nnoremap zl :let @z=@"<cr>x$p:let @"=@z<cr>
 " add a single space without exiting normal mode
 nnoremap ss i<space><esc>
 let NERDTreeIgnore = ['\.pyc$']
+
+" auto-close preview window after insertion
+let g:ycm_autoclose_preview_window_after_completion=1
+
+" split line at comma followed by space
+nnoremap <leader>ls :s/, /,\r/g<CR>
