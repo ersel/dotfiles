@@ -1,0 +1,189 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.renderWhitespace": "all",
+    "editor.minimap.enabled": true,
+    "editor.minimap.renderCharacters": false,
+    "eslint.autoFixOnSave": true,
+    "window.zoomLevel": 0,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.formatOnPaste": false,
+    "beautify.config": {
+        "wrap_attributes": "force-aligned"
+    },
+    "[javascript]": {},
+    "files.exclude": {
+        "**/.git": false,
+        "**/.svn": false,
+        "**/.hg": false,
+        "**/CVS": false,
+        "**/.DS_Store": false
+    },
+    "typescript.autoImportSuggestions.enabled": false,
+    "editor.formatOnSave": false,
+    "editor.lineNumbers": "on",
+    "vim.leader": "<space>",
+    "settings.cycle": [
+        {
+            "id": "lineNumber", // must be unique
+            "overrideWorkspaceSettings": false,
+            "values": [
+                {
+                    "editor.lineNumbers": "on",
+                    // "workbench.colorTheme": "Default Dark+"
+                },
+                {
+                    "editor.lineNumbers": "relative",
+                    // "workbench.colorTheme": "Default Light+"
+                }
+            ]
+        }
+    ],
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j","k"],
+            "after": ["<Esc>"],
+            "commands": [
+                {
+                    "command": "settings.cycle.lineNumber"
+                }
+            ]
+        }
+    ],
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": ["i"],
+            "after": ["i"],
+            "commands": [
+               {
+                    "command": "settings.cycle.lineNumber" 
+                }
+            ]
+        },
+        {
+            "before": ["I"],
+            "after": ["I"],
+            "commands": [
+               {
+                    "command": "settings.cycle.lineNumber" 
+                }
+            ]
+        },
+        {
+            "before": ["a"],
+            "after": ["a"],
+            "commands": [
+               {
+                    "command": "settings.cycle.lineNumber" 
+                }
+            ]
+        },
+        {
+            "before": ["A"],
+            "after": ["A"],
+            "commands": [
+               {
+                    "command": "settings.cycle.lineNumber" 
+                }
+            ]
+        },
+        {
+            "before": ["o"],
+            "after": ["o"],
+            "commands": [
+               {
+                    "command": "settings.cycle.lineNumber" 
+                }
+            ]
+        },
+        {
+            "before": ["O"],
+            "after": ["O"],
+            "commands": [
+               {
+                    "command": "settings.cycle.lineNumber" 
+                }
+            ]
+        },
+        {
+           "before": ["_"],
+            "after": ["$"],
+        },
+        {
+            "before": [")"],
+            "after": ["^"]
+        },
+        {
+            "before": ["<leader>", "["],
+            "after": ["#"]
+        },
+        {
+            "before": ["<leader>", "]"],
+            "after": ["*"]
+        },
+        {
+            "before": ["<leader>", "h"],
+            "after": [],
+            "commands": [{
+                "command": "workbench.action.previousEditor"
+            }]
+        },
+        {
+            "before": ["<leader>", "l"],
+            "after": [],
+            "commands": [{
+                "command": "workbench.action.nextEditor"
+            }]
+        },
+        {
+            "before": ["<leader>", "w"],
+            "after": [],
+            "commands": [{
+                "command": "workbench.action.files.save"
+            }]
+        },
+        {
+            "before": ["<leader>", "W"],
+            "after": [],
+            "commands": [{
+                "command": "workbench.action.files.saveAll"
+            }]
+        },
+        {
+            "before": ["<leader>", "q"],
+            "after": [],
+            "commands": [{
+                "command": "workbench.action.files.closeActiveEditor"
+            }]    
+        },
+        {
+            "before": ["<leader>", "Q"],
+            "after": [],
+            "commands": [{
+                "command": "workbench.action.files.closeOtherEditors"
+            }]    
+        },
+        {
+            "before": ["<leader>", ";"],
+            "after": [],
+            "commands": [{
+                "command": ":norm A;"
+            }]    
+        },
+        {
+            "before": ["<leader>", "s", "s"],
+            "after": [],
+            "commands": [{
+                "command": ":norm a "
+            }]    
+        }
+    ],
+    "vim.enableNeovim": true,
+    "vim.neovimPath": "/usr/local/bin/nvim",
+    "workbench.colorTheme": "Default Dark+",
+    "workbench.startupEditor": "newUntitledFile",
+    "material-icon-theme.showUpdateMessage": false,
+    "editor.fontFamily": "source code pro",
+    "editor.fontWeight": "300",
+    "editor.fontSize": 18
+}
